@@ -10,6 +10,7 @@ function App() {
         <Route exact path="/" element={<Home />} />
         <Route exact path="/dashboard" element={<TriggerDashboard />} />
         <Route exact path="/list" element={<Triggerlist />} />
+        <Route exact path="/exercise" />
       </Routes>
     </Router>
   );

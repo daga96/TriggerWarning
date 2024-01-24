@@ -1,10 +1,10 @@
 const mongoose = require("mongoose");
 
 const triggerSchema = new mongoose.Schema({
-  problem: {
+  user_id: {
     type: String,
   },
-  user_id: {
+  problem: {
     type: String,
   },
   emotions: {

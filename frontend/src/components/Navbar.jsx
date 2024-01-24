@@ -5,7 +5,9 @@ const Navbar = () => {
         <div>Trigger Warning</div>
         <ul className="flex flex-row gap-6 mr-8">
           <li>Dashboard</li>
-          <li>My Triggers</li>
+          <li>
+            <a href="/list">My Triggers</a>
+          </li>
           <li>Exercises</li>
         </ul>
       </div>
