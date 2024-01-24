@@ -1,43 +1,54 @@
+import { useState, useEffect } from "react";
 import ListElement from "../components/ListElement";
 import TriggerDetails from "../components/TriggerDetails";
 import Layout from "../layouts/main";
 import { CiCirclePlus } from "react-icons/ci";
+import { getAllTriggers } from "../../api/apiService";
 
 const Triggerlist = () => {
+  const [isOpen, setIsOpen] = useState(false);
+  const [triggers, setTriggers] = useState([]);
+  const [index, setIndex] = useState(0);
+
+  useEffect(() => {
+    getTriggerInfo();
+  }, []);
+
+  const getTriggerInfo = async () => {
+    const triggers = await getAllTriggers({
+      userId: "65af51c3b78b3fdac42f4f97",
+    });
+
+    setTriggers(triggers.data);
+  };
+
+  const handleListElementClick = (idx) => {
+    setIndex(idx);
+    setIsOpen(true);
+  };
+
   return (
     <Layout>
-      <TriggerDetails
-        problem={
-          "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque eget urna est. Vestibulum eu massa fringilla metus aliquam ultricies. Duis sodales justo felis, id pretium felis egestas non. Quisque vehicula efficitur risus. "
-        }
-        emotions={["sadness", "anger", "fear"]}
-        physical={["pain", "chills"]}
-      />
+      {isOpen && (
+        <TriggerDetails
+          trigger={triggers[index]}
+          isOpen={isOpen}
+          setIsOpen={setIsOpen}
+        />
+      )}
+
       <div className="md:grid grid-cols-4 sm:flex flex-col">
-        <ListElement
-          date={"12.12"}
-          problem={
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque eget urna est. Vestibulum eu massa fringilla metus aliquam ultricies. Duis sodales justo felis, id pretium felis egestas non. Quisque vehicula efficitur risus. "
-          }
-        />
-        <ListElement
-          date={"12.12"}
-          problem={
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque eget urna est. Vestibulum eu massa fringilla metus aliquam ultricies. Duis sodales justo felis, id pretium felis egestas non. Quisque vehicula efficitur risus. "
-          }
-        />
-        <ListElement
-          date={"12.12"}
-          problem={
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque eget urna est. Vestibulum eu massa fringilla metus aliquam ultricies. Duis sodales justo felis, id pretium felis egestas non. Quisque vehicula efficitur risus. "
-          }
-        />
-        <ListElement
-          date={"12.12"}
-          problem={
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque eget urna est. Vestibulum eu massa fringilla metus aliquam ultricies. Duis sodales justo felis, id pretium felis egestas non. Quisque vehicula efficitur risus. "
-          }
-        />
+        {triggers?.map((trigger, idx) => {
+          return (
+            <ListElement
+              key={idx}
+              date={"12.12"}
+              problem={trigger.problem}
+              setIsOpen={handleListElementClick}
+              idx={idx}
+            />
+          );
+        })}
       </div>
 
       <button className="flex items-center justify-center max-w-sm m-4 rounded overflow-hidden shadow-lg">

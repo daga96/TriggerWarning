@@ -11,6 +11,6 @@ const router = express.Router();
 router.post("/register", registerUser);
 router.post("/login", loginUser);
 router.post("/addTrigger", preventAccess, createTrigger);
-router.post("/getTriggers", preventAccess, getAllTriggersByUser);
-
+router.post("/getTriggers", getAllTriggersByUser);
+//add preventAccess
 module.exports = router;

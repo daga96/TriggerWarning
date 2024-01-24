@@ -35,7 +35,7 @@ exports.createTrigger = asyncHandler(async (req, res) => {
 exports.getAllTriggersByUser = asyncHandler(async (req, res) => {
   const { userId } = req.body;
 
-  const triggerList = await triggerModel.find({ userId });
+  const triggerList = await triggerModel.find({ user_id: userId });
 
   if (triggerList) {
     result.success(res, triggerList, "Trigger List Called Successfully");

@@ -4,6 +4,9 @@ const triggerSchema = new mongoose.Schema({
   problem: {
     type: String,
   },
+  user_id: {
+    type: String,
+  },
   emotions: {
     type: Array,
   },
