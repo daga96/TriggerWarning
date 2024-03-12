@@ -1,12 +1,13 @@
 import { useState } from "react";
 import { GrTrigger } from "react-icons/gr";
+import "../styles/listElement.css";
 
 const ListElement = ({ date, problem, setIsOpen, idx }) => {
   const [isHovered, setIsHovered] = useState(false);
 
   return (
     <div
-      className="max-w-sm h-200 m-4 rounded-lg overflow-hidden shadow-lg cursor-pointer relative overflow-hidden"
+      className="max-w-sm h-200 m-4 rounded-lg  shadow-lg cursor-pointer relative overflow-hidden"
       onClick={() => setIsOpen(idx)}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
@@ -18,15 +19,15 @@ const ListElement = ({ date, problem, setIsOpen, idx }) => {
         </div>
         <p className="mr-4">{date}</p>
       </div>
-      <div className="relative h-full">
-        <div className="flex flex-col gap-2 p-4 ">
+      <div className="relative h-full overflow-hidden">
+        <div className="flex flex-col gap-2 p-4">
           <p className="font-bold">{problem}</p>
           <div
-            className={`absolute inset-0 bg-mute-orange flex items-center justify-center transition-transform duration-300 ${
-              isHovered ? "opacity-100" : "opacity-0"
+            className={`absolute inset-0 bg-mute-orange flex justify-center pt-14 ${
+              isHovered ? "animate-slide-in" : "animate-slide-out"
             }`}
           >
-            <span className="text-white text-md">See more</span>
+            <p className="text-white text-lg">See more</p>
           </div>
         </div>
       </div>

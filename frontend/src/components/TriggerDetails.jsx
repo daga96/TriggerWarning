@@ -1,12 +1,14 @@
+import "../styles/triggerDetails.css";
+
 const TriggerDetails = ({ trigger, isOpen, setIsOpen }) => {
   return (
     <div
-      className="absolute w-100 h-100 inset-0 flex items-center justify-between bg-black bg-opacity-50 z-100"
+      className="absolute w-100 h-100 inset-0 flex items-center justify-between bg-black bg-opacity-50 z-500"
       onClick={(e) => setIsOpen(false)}
     >
       <div
         className={`relative ml-auto mr-0 rounded-l-lg bg-white w-1/2 h-full p-4 ${
-          isOpen ? "translate-x-0" : "translate-x-full"
+          isOpen ? "animate-slide-left" : "animate-slide-right"
         }`}
       >
         <h1 className="font-bold">Overview</h1>

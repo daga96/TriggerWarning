@@ -51,9 +51,9 @@ const Triggerlist = () => {
         })}
         <a
           href="/create"
-          className="flex items-center justify-center max-w-sm m-4 rounded overflow-hidden shadow-lg"
+          className="flex items-center justify-center max-w-sm m-4 rounded overflow-hidden shadow-lg "
         >
-          <CiCirclePlus size="100px" />
+          <CiCirclePlus className="text-mute-orange" size="100px" />
         </a>
       </div>
     </Layout>
