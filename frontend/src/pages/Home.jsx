@@ -11,13 +11,13 @@ const Home = () => {
         <div className="flex flex-col mb-8 lg:mb-16 space-y-4 sm:flex-row sm:justify-center sm:space-y-0 sm:space-x-4">
           <a
             href="#"
-            className="inline-flex justify-center items-center py-3 px-5 text-base font-medium text-center text-white rounded-lg bg-mute-orange"
+            className="inline-flex justify-center items-center py-3 px-5 text-base font-medium text-center text-white rounded-lg bg-mute-orange hover:text-mute-orange hover:border-mute-orange hover:bg-white"
           >
             Register
           </a>
           <a
             href="#"
-            className="inline-flex justify-center items-center py-3 px-5 text-base font-medium text-center text-mute-orange rounded-lg border border-mute-orange  "
+            className="inline-flex justify-center items-center py-3 px-5 text-base font-medium text-center text-mute-orange rounded-lg border border-mute-orange hover:bg-mute-orange hover:border-mute-orange hover:text-white   "
           >
             Login
           </a>

@@ -1,5 +1,11 @@
+import Layout from "../layouts/main";
+
 const TriggerForm = () => {
-  return <div></div>;
+  return (
+    <Layout>
+      <div>Aaa</div>
+    </Layout>
+  );
 };
 
 export default TriggerForm;

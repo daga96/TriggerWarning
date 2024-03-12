@@ -61,7 +61,6 @@ const TriggerDetails = ({ trigger, isOpen, setIsOpen }) => {
             {cons}
           </span>
         ))}
-
         <h2 className="font-bold">Solutions</h2>
         {trigger.solutions.map((solution, idx) => (
           <span
